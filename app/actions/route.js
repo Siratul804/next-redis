@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { client } from "../lib/db";
 import { redirect } from "next/navigation";
 
@@ -32,4 +33,5 @@ export async function createBook(formData) {
   });
 
   redirect("/");
+  revalidatePath("/");
 }
